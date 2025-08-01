@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt0n4w8cc8lsc"]
+
+[ext_resource type="Script" uid="uid://ct8v2ct5hn5yu" path="res://Assets/player.gd" id="1_0tiv2"]
+[ext_resource type="Material" uid="uid://bkku7r1vn76g4" path="res://Assets/material_checker.tres" id="1_53jbt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n1j1f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7w0at"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_53jbt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1j1f"]
+
+[node name="Game" type="Node"]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
+shape = SubResource("BoxShape3D_n1j1f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+material_override = ExtResource("1_53jbt")
+mesh = SubResource("BoxMesh_7w0at")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15305, 0)
+floor_constant_speed = true
+floor_max_angle = 1.0472
+script = ExtResource("1_0tiv2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_53jbt")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_n1j1f")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
