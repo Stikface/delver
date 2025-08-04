@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8ukkqeikjtk6"]
+[gd_scene load_steps=5 format=3 uid="uid://b8ukkqeikjtk6"]
 
 [ext_resource type="Script" uid="uid://ct8v2ct5hn5yu" path="res://Assets/player_controller.gd" id="1_tpd1a"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_53jbt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tpd1a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1j1f"]
 
@@ -15,6 +17,14 @@ script = ExtResource("1_tpd1a")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_53jbt")
 skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.20746, 0.150376, -0.435094)
+mesh = SubResource("SphereMesh_tpd1a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.248208, 0.150376, -0.435094)
+mesh = SubResource("SphereMesh_tpd1a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_n1j1f")
