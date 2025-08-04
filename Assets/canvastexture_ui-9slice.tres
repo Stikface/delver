@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://bhh1jglqn738p"]
+
+[ext_resource type="Texture2D" uid="uid://c81l8vx5t4i6r" path="res://Assets/ui-9slice.aseprite" id="1_ta0q3"]
+
+[resource]
+diffuse_texture = ExtResource("1_ta0q3")
+texture_filter = 1
+texture_repeat = 1

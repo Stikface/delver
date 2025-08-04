@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 const MOVE_SPEED = 5.0
 
-#get project's universal gravity setting
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var look_dir: Vector2
