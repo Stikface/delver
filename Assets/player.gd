@@ -1,5 +1,4 @@
 extends CharacterBody3D
-#stolen from youtube channel Gwizz "Godot 4 First Person Controller" https://www.youtube.com/watch?v=fAVetlIROXM
 
 const MOVE_SPEED = 5.0
 
@@ -55,13 +54,13 @@ func _movement_handler(delta: float):
 	var movement_dir = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if movement_dir:
-		#if there's input, set velocity to SPEED
+		#if there's input, set velocity to SPEED (multiplied by input magnitude for analog sticks)
 		velocity.x = movement_dir.x * MOVE_SPEED
 		velocity.z = movement_dir.z * MOVE_SPEED
 	else:
-		#interpolate towards 0 velocity when not taking input
-		velocity.x = move_toward(velocity.x, 0, MOVE_SPEED)
-		velocity.z = move_toward(velocity.z, 0, MOVE_SPEED)
+		#set velocity to 0 when no input
+		velocity.x = 0
+		velocity.z = 0
 
 	#builtin function that handles movement and slides when it crashes into things
 	move_and_slide()
