@@ -7,15 +7,17 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var look_dir: Vector2
 var look_sensitivity = 50
+var keyboard_look_multiplier = 0.04
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera3D
+@onready var camera_anchor: Marker3D = $CameraAnchor
 
 var mouse_capture = false
 
 #this runs for each physics tick.
 #functions with _ at the start are supposed to be private and not accessed by other scripts
 func _physics_process(delta):
-	_rotate_camera(delta)
+	_camera_handler(delta)
 	_movement_handler(delta)
 
 #this gets called every time any kind of input happens
@@ -32,13 +34,21 @@ func _input(event: InputEvent):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _rotate_camera(delta: float, sensitivity_modifier: float = 1.0):
-	var input_dir = Input.get_vector("LookLeft","LookRight","LookDown","LookUp")
+func _camera_handler(delta: float, sensitivity_modifier: float = 1.0):
+	#get input for keyboard-look
+	var input_dir = Input.get_vector("LookLeft","LookRight","LookUp","LookDown") * keyboard_look_multiplier
+	#add keyboardlook input to mouselook input
 	look_dir += input_dir
+	
 	#rotate the whole player node left and right
 	rotation.y -= look_dir.x * look_sensitivity * delta
-	#rotate just the camera up and down. clamp() so you can't break your neck looking up and down
-	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x - look_dir.y * look_sensitivity * sensitivity_modifier * delta, -1.5, 1.5) #clamp bounds are in radians
+	
+	#rotate just the camera-anchor up and down. clamp() so you can't break your neck looking up and down
+	camera_anchor.rotation.x = clamp(camera_anchor.rotation.x - look_dir.y * look_sensitivity * sensitivity_modifier * delta, -1.5, 1.5) #clamp bounds are in radians
+	
+	#interpolate camera anchor between physics ticks to prevent jittering when screen refresh is faster than physics ticks
+	camera_pivot.global_transform = camera_anchor.get_global_transform_interpolated()
+	
 	look_dir = Vector2.ZERO
 
 func _movement_handler(delta: float):
