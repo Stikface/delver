@@ -3,40 +3,48 @@
 [ext_resource type="Script" uid="uid://ct8v2ct5hn5yu" path="res://Assets/player.gd" id="1_0tiv2"]
 [ext_resource type="Material" uid="uid://bkku7r1vn76g4" path="res://Assets/material_checker.tres" id="1_53jbt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n1j1f"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_7w0at"]
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_53jbt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1j1f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_53jbt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7w0at"]
 
 [node name="Game" type="Node"]
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
-shape = SubResource("BoxShape3D_n1j1f")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/StaticBody3D"]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+[node name="Floor" type="CSGBox3D" parent="World"]
 material_override = ExtResource("1_53jbt")
-mesh = SubResource("BoxMesh_7w0at")
+use_collision = true
+size = Vector3(20, 1, 20)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15305, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6065, 0)
 floor_constant_speed = true
 floor_max_angle = 1.0472
 script = ExtResource("1_0tiv2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_53jbt")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_n1j1f")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="CameraPivot" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.65379, 0.756676, 0, -0.756676, 0.65379, 0, 0, 0, 1, 0.485619, 3.64454, -3.28737)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = ExtResource("1_53jbt")
+mesh = SubResource("BoxMesh_53jbt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_7w0at")

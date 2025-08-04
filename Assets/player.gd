@@ -8,7 +8,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var look_dir: Vector2
 var look_sensitivity = 50
-@onready var camera = $Camera3D
+@onready var camera_pivot = $CameraPivot
+@onready var camera = $CameraPivot/Camera3D
 
 var mouse_capture = false
 
@@ -38,13 +39,13 @@ func _rotate_camera(delta: float, sensitivity_modifier: float = 1.0):
 	#rotate the whole player node left and right
 	rotation.y -= look_dir.x * look_sensitivity * delta
 	#rotate just the camera up and down. clamp() so you can't break your neck looking up and down
-	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * look_sensitivity * sensitivity_modifier * delta, -1.5, 1.5) #clamp bounds are in radians
+	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x - look_dir.y * look_sensitivity * sensitivity_modifier * delta, -1.5, 1.5) #clamp bounds are in radians
 	look_dir = Vector2.ZERO
 
 func _movement_handler(delta: float):
 	#falling down
-	#if not is_on_floor():
-	#	velocity.y -= gravity * delta
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 
 	#we don't have jumping so im not adding a jump function
 
@@ -64,3 +65,4 @@ func _movement_handler(delta: float):
 
 	#builtin function that handles movement and slides when it crashes into things
 	move_and_slide()
+	
