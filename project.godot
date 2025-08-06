@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Delver"
-run/main_scene="uid://bt0n4w8cc8lsc"
+run/main_scene="uid://b8p7dj1kc5vew"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -92,3 +92,7 @@ Inventory={
 common/physics_jitter_fix=0.0
 3d/default_gravity=18.0
 common/physics_interpolation=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

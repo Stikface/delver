@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ykj1837erio5"]
+
+[ext_resource type="StyleBox" uid="uid://wwx467l73h2a" path="res://Assets/panelstyle_9slice.tres" id="1_craeg"]
+
+[resource]
+Panel/styles/panel = ExtResource("1_craeg")

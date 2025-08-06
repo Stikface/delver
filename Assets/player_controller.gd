@@ -8,10 +8,13 @@ var look_dir: Vector2
 var look_sensitivity = 50
 var keyboard_look_multiplier = 0.04
 @onready var camera_pivot = $CameraPivot
-@onready var camera = $CameraPivot/Camera3D
+@onready var camera = $CameraPivot/PlayerCamera
 @onready var camera_anchor: Marker3D = $CameraAnchor
 
 var mouse_capture = false
+
+func _ready():
+	Global.player = self
 
 #this runs for each physics tick.
 #functions with _ at the start are supposed to be private and not accessed by other scripts
