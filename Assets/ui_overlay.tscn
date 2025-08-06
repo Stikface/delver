@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8p7dj1kc5vew"]
+[gd_scene load_steps=8 format=3 uid="uid://b8p7dj1kc5vew"]
 
 [ext_resource type="Theme" uid="uid://ykj1837erio5" path="res://Assets/ui_style.tres" id="1_sxr1j"]
 [ext_resource type="PackedScene" uid="uid://dqas331allk00" path="res://Assets/3d_stage_test.tscn" id="2_o4gd4"]
 [ext_resource type="Shader" uid="uid://bpigungm3ksy2" path="res://Assets/2D_liquid_fill_inside_sphere.gdshader" id="3_5p17c"]
 [ext_resource type="StyleBox" uid="uid://wwx467l73h2a" path="res://Assets/panelstyle_9slice.tres" id="3_o4gd4"]
 [ext_resource type="Texture2D" uid="uid://bya8vkt1ao42f" path="res://Assets/checker.png" id="5_5p17c"]
+[ext_resource type="PackedScene" uid="uid://b643d4fxucgwq" path="res://Assets/thought_panel.tscn" id="6_3a477"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a477"]
 shader = ExtResource("3_5p17c")
@@ -32,133 +33,134 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 ratio = 1.78
 
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+mouse_filter = 2
 
-[node name="UIViewport" type="SubViewportContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+[node name="UIViewport" type="SubViewportContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/MarginContainer/VBoxContainer/UIViewport"]
+[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/UIViewport"]
 handle_input_locally = false
-size = Vector2i(1216, 551)
+size = Vector2i(1208, 547)
 render_target_update_mode = 4
 
-[node name="3DStageTest" parent="AspectRatioContainer/MarginContainer/VBoxContainer/UIViewport/SubViewport" instance=ExtResource("2_o4gd4")]
+[node name="3DStageTest" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/UIViewport/SubViewport" instance=ExtResource("2_o4gd4")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
 theme = ExtResource("1_sxr1j")
 theme_override_styles/panel = ExtResource("3_o4gd4")
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
 material = SubResource("ShaderMaterial_3a477")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer2"]
 material = SubResource("ShaderMaterial_3a477")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
-layout_mode = 2
-texture = ExtResource("5_5p17c")
-
-[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
 texture = ExtResource("5_5p17c")
+expand_mode = 2
 
-[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3"]
 layout_mode = 2
 texture = ExtResource("5_5p17c")
+expand_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+texture = ExtResource("5_5p17c")
+expand_mode = 2
+
+[node name="PanelContainer5" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_o4gd4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+[node name="ThoughtPanel" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer5/VBoxContainer" instance=ExtResource("6_3a477")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="ThoughtPanel2" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer5/VBoxContainer" instance=ExtResource("6_3a477")]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/PanelContainer"]
+[node name="ThoughtPanel3" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer5/VBoxContainer" instance=ExtResource("6_3a477")]
 layout_mode = 2
-text = "AAOUUUGGGHHH!!!!"
 
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="ThoughtPanel4" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer5/VBoxContainer" instance=ExtResource("6_3a477")]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-text = "thoughts go here"
-
-[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3"]
-layout_mode = 2
-text = "maybe its too much to make this a scrollbar"
-
-[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
-layout_mode = 2
-text = "i think it should only scrollbar in the tab menu"
 
 [node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer"]
 layout_mode = 2

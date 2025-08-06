@@ -8,7 +8,7 @@
 
 // https://twitter.com/RuverQuack
 
-// Feel free troveto use this however you want.
+// Feel free to use this however you want.
 // Modify, learn from it, copy-paste, etc...
 
 // Original Shadertoy: https://www.shadertoy.com/view/Ds3BRN
