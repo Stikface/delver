@@ -29,6 +29,10 @@ window/size/resizable=false
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
+[gui]
+
+theme/custom="uid://ykj1837erio5"
+
 [input]
 
 Interact={

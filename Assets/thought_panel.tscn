@@ -4,7 +4,6 @@
 [ext_resource type="StyleBox" uid="uid://wwx467l73h2a" path="res://Assets/panelstyle_9slice.tres" id="1_a12w2"]
 
 [node name="ThoughtPanel" type="PanelContainer"]
-size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
