@@ -5,6 +5,8 @@ const MOVE_SPEED = 5.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var look_dir: Vector2
+var keyboard_look_input_dir:Vector2
+var movement_input_dir: Vector2
 var look_sensitivity = 50
 var keyboard_look_multiplier = 0.04
 @onready var camera_pivot = $CameraPivot
@@ -20,19 +22,19 @@ func _physics_process(delta):
 	_camera_handler(delta)
 	_movement_handler(delta)
 
-#this gets called every time any kind of input happens
-func _input(event: InputEvent):
+#unhandled inputs gets blocked by menus
+func _unhandled_input(event: InputEvent):
 	#input events are defined by the InputMap but mouse inputs are Their Own Thing
 	#event.relative is the amount the input variable changed since the last frame
 	if event is InputEventMouseMotion: look_dir = event.relative * 0.01
 	
+	var keyboard_look_input_dir = Input.get_vector("game_look_left","game_look_right","game_look_up","game_look_down") * keyboard_look_multiplier
 	
+	# get input directions for movement. this gives intensity 0.0 to 1.0 if using analog sticks
+	movement_input_dir = Input.get_vector("game_left","game_right","game_up","game_down")
 
 func _camera_handler(delta: float, sensitivity_modifier: float = 1.0):
-	#get input for keyboard-look
-	var input_dir = Input.get_vector("LookLeft","LookRight","LookUp","LookDown") * keyboard_look_multiplier
-	#add keyboardlook input to mouselook input
-	look_dir += input_dir
+	look_dir += keyboard_look_input_dir
 	
 	#rotate the whole player node left and right
 	rotation.y -= look_dir.x * look_sensitivity * delta
@@ -52,10 +54,8 @@ func _movement_handler(delta: float):
 
 	#we don't have jumping so im not adding a jump function
 
-	# get input directions for movement. this gives intensity 0.0 to 1.0 if using analog sticks
-	var input_dir = Input.get_vector("Left","Right","Up","Down")
 	# create a Vector3 using input directions. normalized() stops the "diagonal is faster" thing that happens in DOOM
-	var movement_dir = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var movement_dir = (transform.basis * Vector3(movement_input_dir.x, 0, movement_input_dir.y)).normalized()
 
 	if movement_dir:
 		#if there's input, set velocity to SPEED (multiplied by input magnitude for analog sticks)
