@@ -5,7 +5,7 @@ const MOVE_SPEED = 5.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var look_dir: Vector2
-var keyboard_look_input_dir:Vector2
+var keyboard_look_input_dir: Vector2
 var movement_input_dir: Vector2
 var look_sensitivity = 50
 var keyboard_look_multiplier = 0.04
@@ -28,10 +28,11 @@ func _unhandled_input(event: InputEvent):
 	#event.relative is the amount the input variable changed since the last frame
 	if event is InputEventMouseMotion: look_dir = event.relative * 0.01
 	
-	var keyboard_look_input_dir = Input.get_vector("game_look_left","game_look_right","game_look_up","game_look_down") * keyboard_look_multiplier
-	
-	# get input directions for movement. this gives intensity 0.0 to 1.0 if using analog sticks
-	movement_input_dir = Input.get_vector("game_left","game_right","game_up","game_down")
+	if event is InputEventJoypadMotion or InputEventKey:
+		# use this instead of get_vector because otherwise you cant walk straight https://github.com/godotengine/godot-docs/issues/5378
+		keyboard_look_input_dir = Vector2(Input.get_axis("game_look_left", "game_look_right"), Input.get_axis("game_look_up", "game_look_down"))
+		# get input directions for movement. this gives intensity 0.0 to 1.0 if using analog sticks
+		movement_input_dir = Vector2(Input.get_axis("game_left", "game_right"), Input.get_axis("game_up", "game_down"))
 
 func _camera_handler(delta: float, sensitivity_modifier: float = 1.0):
 	look_dir += keyboard_look_input_dir
