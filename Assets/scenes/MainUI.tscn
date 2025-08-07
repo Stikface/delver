@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cskoli6colapu"]
+[gd_scene load_steps=2 format=3 uid="uid://dbim1b66nu4rj"]
 
-[ext_resource type="PackedScene" uid="uid://b8p7dj1kc5vew" path="res://Assets/ui_overlay.tscn" id="1_13ygh"]
+[ext_resource type="PackedScene" uid="uid://b8p7dj1kc5vew" path="res://Assets/scenes/ui_overlay.tscn" id="1_13ygh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Delver"
-run/main_scene="uid://b8p7dj1kc5vew"
+run/main_scene="uid://b1puo2x4o7gyk"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Assets/global.gd"
+Global="*res://Assets/scenes/global.tscn"
+InputHandler="*res://Assets/scenes/input_handler.tscn"
 
 [display]
 

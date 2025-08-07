@@ -11,8 +11,6 @@ var keyboard_look_multiplier = 0.04
 @onready var camera = $CameraPivot/PlayerCamera
 @onready var camera_anchor: Marker3D = $CameraAnchor
 
-var mouse_capture = false
-
 func _ready():
 	Global.player = self
 
@@ -28,13 +26,7 @@ func _input(event: InputEvent):
 	#event.relative is the amount the input variable changed since the last frame
 	if event is InputEventMouseMotion: look_dir = event.relative * 0.01
 	
-	#toggle mouse capture
-	if Input.is_action_pressed("Pause"):
-		mouse_capture = !mouse_capture #flips the boolean to the opposite of what it already was. ! = "NOT"
-		if mouse_capture:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 
 func _camera_handler(delta: float, sensitivity_modifier: float = 1.0):
 	#get input for keyboard-look

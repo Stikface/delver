@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1puo2x4o7gyk"]
+
+[ext_resource type="PackedScene" uid="uid://b8p7dj1kc5vew" path="res://Assets/scenes/ui_overlay.tscn" id="1_iklni"]
+[ext_resource type="PackedScene" uid="uid://bkvf4ff8lv4c7" path="res://Assets/scenes/ui_tabmenu.tscn" id="1_wrq5g"]
+
+[node name="Main" type="Node"]
+
+[node name="UIOverlay" parent="." instance=ExtResource("1_iklni")]
+
+[node name="UITabMenu" parent="." instance=ExtResource("1_wrq5g")]
+visible = false

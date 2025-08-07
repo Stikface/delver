@@ -54,14 +54,14 @@ void fragment() {
 		//smoothstep()
         vB=smoothstep(.1,.9,sin(uv.x+(PI*.5))-.3),
 		vBA=vB*sin(TIME*wave_alternation_frequency)*wave_alternation_amplitude,
-		
+
         fW=(sin(((TIME*wave_frequency)+uv.x)*wave_frequency)*wave_amplitude)+vBA,
 		bW=(sin(((TIME*-wave_frequency)+uv.x)*wave_frequency+PI)*wave_amplitude)-vBA,
-		
+
         fA=(sin(TIME*4.)*wave_amplitude)*vB,
-        
+
         fP=fill_value * 2.3 +(sin((TIME)*PI)*idle_jiggle_amplitude) - 1.1,
-		
+
         fF=step(uv.y,(fA+fW)+fP)*c,
 		bF=step(uv.y,(-fA+bW)+fP)*c;
 
@@ -70,5 +70,5 @@ void fragment() {
 		(fF+(clamp(bF-fF,0.,1.)*.8))+
 		clamp(pow((sdf+.01)*
 		((1.-(fF+bF))*c),5.),0.,1.));
-		
+
 }

@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8p7dj1kc5vew"]
+[gd_scene load_steps=9 format=3 uid="uid://b8p7dj1kc5vew"]
 
-[ext_resource type="Theme" uid="uid://ykj1837erio5" path="res://Assets/ui_style.tres" id="1_sxr1j"]
-[ext_resource type="PackedScene" uid="uid://dqas331allk00" path="res://Assets/3d_stage_test.tscn" id="2_o4gd4"]
-[ext_resource type="Shader" uid="uid://bpigungm3ksy2" path="res://Assets/2D_liquid_fill_inside_sphere.gdshader" id="3_5p17c"]
-[ext_resource type="StyleBox" uid="uid://wwx467l73h2a" path="res://Assets/panelstyle_9slice.tres" id="3_o4gd4"]
-[ext_resource type="Texture2D" uid="uid://bya8vkt1ao42f" path="res://Assets/checker.png" id="5_5p17c"]
-[ext_resource type="PackedScene" uid="uid://b643d4fxucgwq" path="res://Assets/thought_panel.tscn" id="6_3a477"]
+[ext_resource type="Theme" path="res://Assets/textures/ui_style.tres" id="1_sxr1j"]
+[ext_resource type="PackedScene" uid="uid://dqas331allk00" path="res://Assets/scenes/3d_stage_test.tscn" id="2_o4gd4"]
+[ext_resource type="Shader" uid="uid://bpigungm3ksy2" path="res://Assets/shaders/2D_liquid_fill_inside_sphere.gdshader" id="3_5p17c"]
+[ext_resource type="StyleBox" path="res://Assets/textures/panelstyle_9slice.tres" id="3_o4gd4"]
+[ext_resource type="Texture2D" uid="uid://bya8vkt1ao42f" path="res://Assets/textures/checker.png" id="5_5p17c"]
+[ext_resource type="PackedScene" uid="uid://fildla7h0asm" path="res://Assets/scenes/thought_panel.tscn" id="6_3a477"]
+
+[sub_resource type="GDScript" id="GDScript_405yt"]
+script/source = "extends Control
+
+func _ready():
+	Global.ui_overlay = self
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a477"]
 shader = ExtResource("3_5p17c")
@@ -24,6 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_sxr1j")
+script = SubResource("GDScript_405yt")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 custom_minimum_size = Vector2(1280, 720)
@@ -60,7 +68,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/UIViewport"]
 handle_input_locally = false
-size = Vector2i(1208, 547)
+size = Vector2i(1208, 515)
 render_target_update_mode = 4
 
 [node name="3DStageTest" parent="AspectRatioContainer/MarginContainer/MarginContainer/VBoxContainer/UIViewport/SubViewport" instance=ExtResource("2_o4gd4")]

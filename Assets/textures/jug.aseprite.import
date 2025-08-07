@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.static-texture-split"
 type="PackedDataContainer"
 uid="uid://c2oy1vuxywi4g"
-path="res://.godot/imported/jug.aseprite-a0ca97d8047a984bd7a9614d78cfeb5f.res"
+path="res://.godot/imported/jug.aseprite-52a38ee0e59b9f0e83c4face68fcc038.res"
 
 [deps]
 
-source_file="res://Assets/jug.aseprite"
-dest_files=["res://.godot/imported/jug.aseprite-a0ca97d8047a984bd7a9614d78cfeb5f.res"]
+source_file="res://Assets/textures/jug.aseprite"
+dest_files=["res://.godot/imported/jug.aseprite-52a38ee0e59b9f0e83c4face68fcc038.res"]
 
 [params]
 

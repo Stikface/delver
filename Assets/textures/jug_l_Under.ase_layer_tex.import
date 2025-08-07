@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture-split-layer"
+type="PortableCompressedTexture2D"
+uid="uid://dpc57kajbjo8n"
+path="res://.godot/imported/jug_l_Under.ase_layer_tex-5942441cece44aaa7711e798106886aa.res"
+
+[deps]
+
+source_file="res://Assets/textures/jug_l_Under.ase_layer_tex"
+dest_files=["res://.godot/imported/jug_l_Under.ase_layer_tex-5942441cece44aaa7711e798106886aa.res"]
+
+[params]
+

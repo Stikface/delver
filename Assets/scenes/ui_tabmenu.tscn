@@ -1,17 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkvf4ff8lv4c7"]
+[gd_scene load_steps=6 format=3 uid="uid://bkvf4ff8lv4c7"]
 
-[ext_resource type="StyleBox" uid="uid://wwx467l73h2a" path="res://Assets/panelstyle_9slice.tres" id="1_3mh8j"]
-[ext_resource type="Texture2D" uid="uid://bya8vkt1ao42f" path="res://Assets/checker.png" id="2_pm84q"]
-[ext_resource type="PackedScene" uid="uid://b643d4fxucgwq" path="res://Assets/thought_panel.tscn" id="3_pm84q"]
-[ext_resource type="Texture2D" uid="uid://dor4etvn8s01s" path="res://Assets/paperdoll-placeholder.png" id="4_qo2nv"]
+[ext_resource type="StyleBox" path="res://Assets/textures/panelstyle_9slice.tres" id="1_3mh8j"]
+[ext_resource type="Texture2D" uid="uid://bya8vkt1ao42f" path="res://Assets/textures/checker.png" id="2_pm84q"]
+[ext_resource type="PackedScene" uid="uid://fildla7h0asm" path="res://Assets/scenes/thought_panel.tscn" id="3_pm84q"]
+[ext_resource type="Texture2D" uid="uid://dor4etvn8s01s" path="res://Assets/textures/paperdoll-placeholder.png" id="4_qo2nv"]
 
-[node name="Control" type="Control"]
+[sub_resource type="GDScript" id="GDScript_58b8t"]
+script/source = "extends Control
+
+func _ready():
+	Global.ui_tabmenu = self
+"
+
+[node name="UITabMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_58b8t")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 custom_minimum_size = Vector2(1280, 720)

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture-split-layer"
+type="PortableCompressedTexture2D"
+uid="uid://pkwmfq3u26ep"
+path="res://.godot/imported/jug_l_Progress.ase_layer_tex-dc5ff57a516a78462dfdd03ad7ba862e.res"
+
+[deps]
+
+source_file="res://Assets/textures/jug_l_Progress.ase_layer_tex"
+dest_files=["res://.godot/imported/jug_l_Progress.ase_layer_tex-dc5ff57a516a78462dfdd03ad7ba862e.res"]
+
+[params]
+
