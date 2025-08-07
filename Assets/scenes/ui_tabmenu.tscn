@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkvf4ff8lv4c7"]
 
-[ext_resource type="StyleBox" path="res://Assets/textures/panelstyle_9slice.tres" id="1_3mh8j"]
+[ext_resource type="StyleBox" uid="uid://wwx467l73h2a" path="res://Assets/textures/panelstyle_9slice.tres" id="1_3mh8j"]
 [ext_resource type="Texture2D" uid="uid://bya8vkt1ao42f" path="res://Assets/textures/checker.png" id="2_pm84q"]
 [ext_resource type="PackedScene" uid="uid://fildla7h0asm" path="res://Assets/scenes/thought_panel.tscn" id="3_pm84q"]
 [ext_resource type="Texture2D" uid="uid://dor4etvn8s01s" path="res://Assets/textures/paperdoll-placeholder.png" id="4_qo2nv"]
@@ -14,7 +14,6 @@ func _ready():
 "
 
 [node name="UITabMenu" type="Control"]
-clip_contents = true
 layout_direction = 2
 layout_mode = 3
 anchors_preset = 15
@@ -27,7 +26,6 @@ size_flags_vertical = 3
 script = SubResource("GDScript_58b8t")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,390 +41,436 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HSplitContainer" type="HSplitContainer" parent="AspectRatioContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="MapContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer"]
+[node name="MapContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/MapContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/MapContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 expand_mode = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
+[node name="Button" type="Button" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "-"
 
-[node name="Button2" type="Button" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
+[node name="Button2" type="Button" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "="
 
-[node name="Button3" type="Button" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
+[node name="Button3" type="Button" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "+"
 
-[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
+[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/MapContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 text = "zoom levels buttons"
 
-[node name="EventLogContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer"]
+[node name="EventLogContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/EventLogContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/EventLogContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/EventLogContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/EventLogContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ThoughtPanel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer/EventLogContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_pm84q")]
+[node name="ThoughtPanel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/EventLogContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_pm84q")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "JOURNAL"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer3" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer2"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer2/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer2/PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer2"]
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
+theme_override_constants/separation = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer3/PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_pm84q")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/PanelContainer"]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 texture = ExtResource("4_qo2nv")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("1_3mh8j")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-text = "STATS!!!"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
-layout_mode = 2
-text = "stat"
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
-layout_mode = 2
-text = "99"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-text = "stat"
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-text = "99"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer3"]
-layout_mode = 2
-text = "stat"
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer3"]
-layout_mode = 2
-text = "99"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer4"]
-layout_mode = 2
-text = "stat"
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer4"]
-layout_mode = 2
-text = "99"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="PanelContainer5" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer5"]
-layout_mode = 2
-text = "stat"
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer5"]
-layout_mode = 2
-text = "99"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="PanelContainer6" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer6"]
-layout_mode = 2
-text = "stat"
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer3/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer6"]
-layout_mode = 2
-text = "99"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer4"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer4"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer4/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer4/PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/HBoxContainer/VBoxContainer4"]
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer4"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer5"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer5/PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_pm84q")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer3/VBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "STATS!!!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TabContainer" type="TabContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "stat"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "stat"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+text = "stat"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer4"]
+layout_mode = 2
+text = "stat"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer4"]
+layout_mode = 2
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelContainer5" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer5"]
+layout_mode = 2
+text = "stat"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer5"]
+layout_mode = 2
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelContainer6" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer6"]
+layout_mode = 2
+text = "stat"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer6"]
+layout_mode = 2
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabContainer" type="TabContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 current_tab = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 metadata/_tab_index = 0
 
-[node name="GridContainer" type="GridContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-columns = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="HFlowContainer" type="HFlowContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+last_wrap_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer2"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer2"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer3"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer3"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer4"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer4"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="PanelContainer5" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="PanelContainer5" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer5"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer5"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="PanelContainer6" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="PanelContainer6" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer6"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer6"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="PanelContainer7" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="PanelContainer7" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer7"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer7"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="PanelContainer8" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer"]
+[node name="PanelContainer8" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer/GridContainer/PanelContainer8"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer/MarginContainer/HFlowContainer/PanelContainer8"]
 layout_mode = 2
 texture = ExtResource("5_iqaik")
 stretch_mode = 5
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer"]
 visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 metadata/_tab_index = 1
 
-[node name="GridContainer" type="GridContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2"]
+[node name="GridContainer" type="GridContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 stretch_mode = 5
 
-[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer2"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer2"]
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 stretch_mode = 5
 
-[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer3"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer3"]
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 stretch_mode = 5
 
-[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
+[node name="PanelContainer4" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer4"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer4"]
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 stretch_mode = 5
 
-[node name="PanelContainer5" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
+[node name="PanelContainer5" type="PanelContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("1_3mh8j")
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HSplitContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer5"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/PanelContainer/TabContainer/ScrollContainer2/GridContainer/PanelContainer5"]
 layout_mode = 2
 texture = ExtResource("2_pm84q")
 stretch_mode = 5

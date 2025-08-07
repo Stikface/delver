@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8p7dj1kc5vew"]
 
-[ext_resource type="Theme" path="res://Assets/textures/ui_style.tres" id="1_sxr1j"]
+[ext_resource type="Theme" uid="uid://ykj1837erio5" path="res://Assets/textures/ui_style.tres" id="1_sxr1j"]
 [ext_resource type="PackedScene" uid="uid://dqas331allk00" path="res://Assets/scenes/3d_stage_test.tscn" id="2_o4gd4"]
 [ext_resource type="Shader" uid="uid://bpigungm3ksy2" path="res://Assets/shaders/2D_liquid_fill_inside_sphere.gdshader" id="3_5p17c"]
-[ext_resource type="StyleBox" path="res://Assets/textures/panelstyle_9slice.tres" id="3_o4gd4"]
+[ext_resource type="StyleBox" uid="uid://wwx467l73h2a" path="res://Assets/textures/panelstyle_9slice.tres" id="3_o4gd4"]
 [ext_resource type="Texture2D" uid="uid://bya8vkt1ao42f" path="res://Assets/textures/checker.png" id="5_5p17c"]
 [ext_resource type="PackedScene" uid="uid://fildla7h0asm" path="res://Assets/scenes/thought_panel.tscn" id="6_3a477"]
 
