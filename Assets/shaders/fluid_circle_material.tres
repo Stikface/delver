@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3gttfcl11g4"]
+
+[ext_resource type="Shader" uid="uid://cjpa54gmdq5tu" path="res://Assets/shaders/fluid_circle_shader.tres" id="1_dp8ho"]
+
+[resource]
+shader = ExtResource("1_dp8ho")
