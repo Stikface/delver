@@ -1,6 +1,20 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3gttfcl11g4"]
 
-[ext_resource type="Shader" uid="uid://cjpa54gmdq5tu" path="res://Assets/shaders/fluid_circle_shader.tres" id="1_dp8ho"]
+[ext_resource type="Shader" uid="uid://bmcrilspmfwbr" path="res://Assets/shaders/fluid_circle_shader.gdshader" id="1_dp8ho"]
 
 [resource]
 shader = ExtResource("1_dp8ho")
+shader_parameter/fill_value = 0.5
+shader_parameter/ringWidth = 0.1
+shader_parameter/innerCircleRadiusOffset = 0.05
+shader_parameter/fill_oscillation_frequency = 1.0
+shader_parameter/fill_oscillation_amplitude = 0.05
+shader_parameter/wave_frequency = 2.0
+shader_parameter/wave_amplitude = 0.05
+shader_parameter/animatedVerticalBandStrength = 0.125
+shader_parameter/ringColor = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/frontFillInnerColor = Color(1, 0, 0, 1)
+shader_parameter/frontFillOuterColor = Color(0.5, 0, 0, 1)
+shader_parameter/frontFillInnerStrength = 4.0
+shader_parameter/backFillColor = Color(0.2, 0, 0, 1)
+shader_parameter/fresnelColor = Color(1, 1, 1, 1)
