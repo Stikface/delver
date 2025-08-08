@@ -5,16 +5,21 @@
 [resource]
 shader = ExtResource("1_dp8ho")
 shader_parameter/fill_value = 0.5
-shader_parameter/ringWidth = 0.1
-shader_parameter/innerCircleRadiusOffset = 0.05
 shader_parameter/fill_oscillation_frequency = 1.0
 shader_parameter/fill_oscillation_amplitude = 0.05
 shader_parameter/wave_frequency = 2.0
 shader_parameter/wave_amplitude = 0.05
-shader_parameter/animatedVerticalBandStrength = 0.125
-shader_parameter/ringColor = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/wave_phase_offset = 64.0
+shader_parameter/ringColor = Color(1, 1, 1, 1)
 shader_parameter/frontFillInnerColor = Color(1, 0, 0, 1)
-shader_parameter/frontFillOuterColor = Color(0.5, 0, 0, 1)
-shader_parameter/frontFillInnerStrength = 4.0
+shader_parameter/frontFillOuterColor = Color(0.352572, 4.42201e-07, 1.44392e-07, 1)
+shader_parameter/frontFillInnerStrength = 0.5
+shader_parameter/doFrontFillGlow = false
+shader_parameter/frontFillGlowSpeed = 8.0
+shader_parameter/frontFillGlowIntensity = 4.0
 shader_parameter/backFillColor = Color(0.2, 0, 0, 1)
 shader_parameter/fresnelColor = Color(1, 1, 1, 1)
+shader_parameter/doGlow = false
+shader_parameter/outerRingGlowSpeed = 8.0
+shader_parameter/outerRingGlowColor = Color(1, 1, 1, 1)
+shader_parameter/outerRingGlowWidth = 0.01

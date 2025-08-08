@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dgpgmy63g7ih"]
+
+[ext_resource type="Shader" uid="uid://bmcrilspmfwbr" path="res://Assets/shaders/fluid_circle_shader.gdshader" id="1_ronp2"]
+
+[resource]
+shader = ExtResource("1_ronp2")
+shader_parameter/fill_value = 0.5
+shader_parameter/fill_oscillation_frequency = 1.0
+shader_parameter/fill_oscillation_amplitude = 0.05
+shader_parameter/wave_frequency = 2.0
+shader_parameter/wave_amplitude = 0.05
+shader_parameter/animatedVerticalBandStrength = 0.5
+shader_parameter/ringColor = Color(1, 1, 1, 1)
+shader_parameter/frontFillInnerColor = Color(0, 0.933333, 1, 1)
+shader_parameter/frontFillOuterColor = Color(0, 0.2, 1, 1)
+shader_parameter/frontFillInnerStrength = 2.0
+shader_parameter/doFrontFillGlow = true
+shader_parameter/frontFillGlowSpeed = 4.0
+shader_parameter/frontFillGlowIntensity = 4.0
+shader_parameter/backFillColor = Color(0.123667, 0, 0.53, 1)
+shader_parameter/fresnelColor = Color(1, 1, 1, 1)
+shader_parameter/doGlow = true
+shader_parameter/outerRingGlowSpeed = 8.0
+shader_parameter/outerRingGlowColor = Color(1, 1, 1, 1)
+shader_parameter/outerRingGlowWidth = 0.01
